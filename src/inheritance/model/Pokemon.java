@@ -1,6 +1,6 @@
 package inheritance.model;
 
-public class Pokemon
+public abstract class Pokemon implements Battle
 {
 
 	//Three Dad Members
