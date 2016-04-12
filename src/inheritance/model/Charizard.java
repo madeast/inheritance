@@ -13,8 +13,9 @@ public class Charizard extends Pokemon
 	@Override
 	public int pokeHealth()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		int HP = 0;
+		
+		return HP;
 	}
 
 	@Override
@@ -28,14 +29,12 @@ public class Charizard extends Pokemon
 	@Override
 	public void pokeAttack(String Type, int damage)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void pokeWinner(String Trainer)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 }
