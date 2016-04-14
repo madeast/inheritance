@@ -7,6 +7,7 @@ public interface Battle
 	public String pokeName();
 	public void pokeAttack(String Type, int damage);
 	public void pokeWinner(String Trainer);
+	public int compareTo(Object thing);
 	
 }
 
