@@ -1,26 +1,27 @@
-package inheritance.runner;
+package inheritance.controller;
 
 import inheritance.model.Battle;
 import inheritance.model.Charizard;
 import inheritance.model.Pikachu;
 import inheritance.model.Squirtle;
+import inheritance.view.PokeFrame;
 
 import java.util.ArrayList;
 
 public class InheritanceController
-{
-	public InheritanceController()
-	{
-		//build all model components
-		makeBattleList();
-		//build view
-	}
-	
+{	
+
 	private ArrayList<Battle> battleList;
+	private PokeFrame baseFrame;
 	
 	public String showBattleLevels()
 	{
 		String battleLevels = "";
+		for(Battle currentBattle : battleList)
+		{
+			battleLevels.concat("This is a " + currentBattle.toString()
+					+ " and has a Pokemon named " + currentBattle.pokeName() + "\n");
+		}
 		
 		return battleLevels;
 	}
@@ -32,9 +33,19 @@ public class InheritanceController
 		battleList.add(new Pikachu());
 	}
 	
+	public InheritanceController()
+	{
+		//build all model components
+		battleList = new ArrayList<Battle>();
+		makeBattleList();
+		baseFrame = new PokeFrame(this);
+		//build view
+		
+	}
+	
 	public void start()
 	{
-		
+
 	}
 	
 	public void swap(int firstLocation, int secondLocation)
@@ -56,4 +67,33 @@ public class InheritanceController
 			}
 		}
 	}
+	
+	public void quickSort(int low, int high)
+	{
+		if(low< high)
+		{
+			int midPoint = partition(low, high);
+			quickSort(low, midPoint-1);
+			quickSort(midPoint+1, high);
+		}
+	}
+	
+	private int partition(int low, int high)
+	{
+		int paritionPoint = 0;
+		Battle pivot = battleList.get(high);
+		int position = low;
+		for(int spot = low; spot < high-1; spot++)
+		{
+			if(battleList.get(spot).compareTo(pivot) <= 0)
+			{
+				swap(position, spot);
+				position++;
+			}
+		}
+		swap(position, high);
+		
+		return position;
+	}
+
 }

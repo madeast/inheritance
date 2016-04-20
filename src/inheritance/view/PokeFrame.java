@@ -1,6 +1,6 @@
 package inheritance.view;
 
-import inheritance.runner.InheritanceController;
+import inheritance.controller.InheritanceController;
 
 import javax.swing.JFrame;
 
